@@ -35,6 +35,7 @@ public class Board {
     private int size;
     private Cell[][] cells;
  
+    public class NoSuchCellException extends RuntimeException {}
 
     public Board() {
         this(0, null);
@@ -62,11 +63,19 @@ public class Board {
 
     
     public Cell getCell(int row, int col) {
-        return cells[row][col];
+        try {
+            return cells[row][col];
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new NoSuchCellException(); 
+        }
     }
 
     
     public void setCell(int row, int col, Cell value) {
-        this.cells[row][col] = value;
+        try {
+            this.cells[row][col] = value;
+        } catch (ArrayIndexOutOfBoundsException e) {
+            throw new NoSuchCellException(); 
+        }
     }
 }
