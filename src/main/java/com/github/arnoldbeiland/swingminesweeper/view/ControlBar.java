@@ -40,9 +40,9 @@ public class ControlBar extends JPanel {
     private GameController controller;
     
     private final int[][] boardConfigs = {
-        {8, 10},
-        {15, 50},
-        {20, 100}
+        {8, 8},
+        {15, 25},
+        {20, 50}
     };
     private int[] selectedBoardConfig = boardConfigs[0];
    
